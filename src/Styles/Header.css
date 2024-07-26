@@ -4,15 +4,6 @@
     align-items: center;
     padding: 2rem;
   }
-
-  .navbar ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 2rem;
-    padding: 0;
-    font-size: 1.2rem;
-  }
   
   .theme-toggle {
     position: relative;

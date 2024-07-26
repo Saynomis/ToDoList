@@ -22,10 +22,9 @@
   max-width: 100%;
 }
 
-body {
+html, body {
   margin: 0 auto;
   padding: 0;
-  min-width: 320px;
 }
 
 .dark-mode {
@@ -38,4 +37,15 @@ body {
   background-color: #9290C3;
   color: #070F2B;
   min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
 }
