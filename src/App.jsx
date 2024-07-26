@@ -33,7 +33,9 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     const newNote = { ...note, id: Date.now() };
-    setNotes((prevNotes) => [...prevNotes, newNote]);
+    if (note.title.trim().length && note.description.trim().length > 1) {
+      setNotes((prevNotes) => [...prevNotes, newNote]);
+    }
     setNote({
       title: "",
       description: "",
