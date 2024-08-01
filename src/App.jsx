@@ -7,6 +7,11 @@ import Footer from "./Components/Footer";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [notes, setNotes] = useState([]);
+  const [note, setNote] = useState({
+    title: "",
+    description: "",
+  });
 
   useEffect(() => {
     document.body.className = isDarkMode ? "dark-mode" : "light-mode";
@@ -15,12 +20,6 @@ function App() {
   const handleThemeToggle = () => {
     setIsDarkMode(!isDarkMode);
   };
-
-  const [note, setNote] = useState({
-    title: "",
-    description: "",
-  });
-  const [notes, setNotes] = useState([]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -46,6 +45,14 @@ function App() {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
   }
 
+  function handleLineTrough(id) {
+    setNotes((prevNotes) =>
+      prevNotes.map((note) =>
+        note.id === id ? { ...note, lineTrough: !note.lineTrough } : note
+      )
+    );
+  }
+
   return (
     <div className="app-container">
       <Header handleClick={handleThemeToggle} isDarkMode={isDarkMode} />
@@ -56,7 +63,11 @@ function App() {
           title={note.title}
           description={note.description}
         />
-        <CreateArea notes={notes} handleDelete={handleDelete} />
+        <CreateArea
+          notes={notes}
+          handleLineTrough={handleLineTrough}
+          handleDelete={handleDelete}
+        />
       </main>
       <Footer />
     </div>
