@@ -15,7 +15,7 @@ export default function CreateArea({
             className={note.lineTrough ? "line-trough" : ""}
             onClick={() =>handleLineTrough(note.id)}
           >
-            {note.description}
+            <span title="Click to mark as done.">{note.description}</span>
           </p>
           <button onClick={() => handleDelete(note.id)} className="del-btn">
             <MdDelete />
